@@ -1,26 +1,23 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node',
-1 verbose cli   '/Users/kristian/.npm-packages/bin/npm',
-1 verbose cli   'run',
-1 verbose cli   'release' ]
-2 info using npm@3.10.7
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'release' ]
+2 info using npm@4.0.5
 3 info using node@v7.4.0
 4 verbose run-script [ 'prerelease', 'release', 'postrelease' ]
 5 info lifecycle retry-wrapper@1.0.0~prerelease: retry-wrapper@1.0.0
 6 silly lifecycle retry-wrapper@1.0.0~prerelease: no script for prerelease, continuing
 7 info lifecycle retry-wrapper@1.0.0~release: retry-wrapper@1.0.0
 8 verbose lifecycle retry-wrapper@1.0.0~release: unsafe-perm in lifecycle true
-9 verbose lifecycle retry-wrapper@1.0.0~release: PATH: /Users/kristian/.npm-packages/lib/node_modules/npm/bin/node-gyp-bin:/Users/kristian/mynpmmodules/retry-wrapper/node_modules/.bin:/Users/kristian/.npm-packages/bin:/usr/local/share/dotnet/:/opt/local/bin:/opt/local/sbin:/Users/kristian/.rvm/gems/ruby-2.3.0/bin:/Users/kristian/.rvm/gems/ruby-2.3.0@global/bin:/Users/kristian/.rvm/rubies/ruby-2.3.0/bin:/usr/bin/git:/usr/local/bin:/Users/kristian/.gem/bin:/opt/local/bin:/opt/local/sbin:/Users/kristian/.npm-packages/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Users/kristian/.rvm/bin:/Users/kristian/.rvm/bin
+9 verbose lifecycle retry-wrapper@1.0.0~release: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/kristian/mynpmmodules/retry-wrapper/node_modules/.bin:/usr/local/share/dotnet/:/opt/local/bin:/opt/local/sbin:/Users/kristian/.rvm/gems/ruby-2.3.0/bin:/Users/kristian/.rvm/gems/ruby-2.3.0@global/bin:/Users/kristian/.rvm/rubies/ruby-2.3.0/bin:/usr/bin/git:/usr/local/bin:/Users/kristian/.gem/bin:/opt/local/bin:/opt/local/sbin:/Users/kristian/.npm-packages/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Users/kristian/.rvm/bin
 10 verbose lifecycle retry-wrapper@1.0.0~release: CWD: /Users/kristian/mynpmmodules/retry-wrapper
 11 silly lifecycle retry-wrapper@1.0.0~release: Args: [ '-c', 'np' ]
 12 silly lifecycle retry-wrapper@1.0.0~release: Returned: code: 1  signal: null
 13 info lifecycle retry-wrapper@1.0.0~release: Failed to exec release script
 14 verbose stack Error: retry-wrapper@1.0.0 release: `np`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/Users/kristian/.npm-packages/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/Users/kristian/.npm-packages/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
 14 verbose stack     at maybeClose (internal/child_process.js:885:16)
@@ -28,9 +25,9 @@
 15 verbose pkgid retry-wrapper@1.0.0
 16 verbose cwd /Users/kristian/mynpmmodules/retry-wrapper
 17 error Darwin 16.4.0
-18 error argv "/usr/local/bin/node" "/Users/kristian/.npm-packages/bin/npm" "run" "release"
+18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "release"
 19 error node v7.4.0
-20 error npm  v3.10.7
+20 error npm  v4.0.5
 21 error code ELIFECYCLE
 22 error retry-wrapper@1.0.0 release: `np`
 22 error Exit status 1
