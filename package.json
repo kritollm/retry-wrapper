@@ -1,0 +1,44 @@
+{
+  "name": "retry-wrapper",
+  "version": "1.0.0",
+  "description": "Easily turn an async function returning a Promise with retry logic.",
+  "main": "index.js",
+  "typing": "index.d.ts",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "jest",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kritollm/retry-wrapper.git"
+  },
+  "keywords": [
+    "retry",
+    "wrapper",
+    "async",
+    "Promise",
+    "easy"
+  ],
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
+  },
+  "author": "Kristian Mørch",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kritollm/retry-wrapper/issues"
+  },
+  "homepage": "https://github.com/kritollm/retry-wrapper#readme",
+  "devDependencies": {
+    "@types/jest": "^19.2.2",
+    "ts-jest": "^19.0.6"
+  }
+}
