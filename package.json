@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsc -p .",
     "test": "jest",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "release": "np"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
   "homepage": "https://github.com/kritollm/retry-wrapper#readme",
   "devDependencies": {
     "@types/jest": "^19.2.2",
+    "np": "^2.13.1",
     "ts-jest": "^19.0.6"
   }
 }

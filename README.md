@@ -1,6 +1,6 @@
 # retry-wrapper - Easily add retry logic to any function returning a Promise.
 
-Tired of making custom made spaggeti retry logic when you occasionally need it?
+Tired of making custom made spaghetti retry logic when you occasionally need it?
 
 ## Usage
 
