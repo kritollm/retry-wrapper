@@ -1,13 +1,11 @@
 // Stupid to use a library for this simple test, but to use hours to write test and debug the tests because
 // it can't handle async code and promises is more important than productivity :)
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = require(".");
 var tryCallBack = function (error, tried, lapsed, resolve, reject, retry) {
     if (tried > 100) {
         // 
         return reject({ error: { original: error, custom: "maxTries" } });
-        // or resolve(error) if you hate to catch
     }
     if (lapsed > (1000 * 60 * 60)) {
         // Retried more than one hour, so take a break
@@ -45,7 +43,7 @@ test('async-wrapper', function (done) {
         }
         retry(tried * 1);
     };
-    var retryWrapped = _1.retryWrapper(maxRetries, simulateRequest);
+    var retryWrapped = _1.retryWrapper(tryCallBack, simulateRequest);
     var promises = [];
     //expect(Promise.reject(4)).reject;
     for (var i = 0, l = 100; i < l; i++) {

@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 function retryWrapper(retries, fn) {
     return function () {
         var args = [];
@@ -35,4 +34,5 @@ function retryWrapper(retries, fn) {
     };
 }
 exports.retryWrapper = retryWrapper;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = retryWrapper;

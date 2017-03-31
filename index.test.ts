@@ -2,6 +2,7 @@
 // it can't handle async code and promises is more important than productivity :)
 
 import { retryWrapper } from '.';
+
 let tryCallBack = (error, tried, lapsed, resolve, reject, retry) => {
     if (tried > 100) {
         // 
@@ -48,7 +49,7 @@ test('async-wrapper', done => {
         }
         retry(tried * 1);
     };
-    let retryWrapped = retryWrapper(maxRetries, simulateRequest);
+    let retryWrapped = retryWrapper(tryCallBack, simulateRequest);
     let promises = [];
     //expect(Promise.reject(4)).reject;
     for (let i = 0, l = 100; i < l; i++) {
