@@ -97,3 +97,26 @@ let tryCallBack = (error, tried, lapsed, resolve, reject, retry) => {
 
 let retryWrapped = retryWrapper(tryCallBack, simulateRequest);
 ```
+
+## Tips
+
+You can use it with retry-wrapper to also add retry logic to your async function.
+
+```bash
+$ npm install -S concurrent-wrapper retry-wrapper
+```
+
+```javascript
+// var concurrentWrapper = require(concurrent-wrapper).concurrentWrapper;
+import { concurrentWrapper } from 'concurrent-wrapper';
+// var retryWrapper = require(retry-wrapper).retryWrapper;
+import { retryWrapper } from 'retry-wrapper';
+
+// random order of execution
+let retryAndConcurrentWrapped = retryWrapper(5, concurrentWrapper(5, myRequestFunction));
+// synced order of execution
+//let retryAndConcurrentWrapped = concurrentWrapper(5, retryWrapper(5, myRequestFunction));
+for (let i = 0, l = 1000; i < l; i++) {
+    retryAndConcurrentWrapped(i).then(console.log.bind(console)).catch(console.error.bind(console))
+  }
+```
