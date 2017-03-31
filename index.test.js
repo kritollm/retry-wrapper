@@ -3,19 +3,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = require(".");
-var tryCallBack = function (error, tried, lapsed, resolve, reject, retry) {
-    if (tried > 100) {
-        // 
-        return reject({ error: { original: error, custom: "maxTries" } });
-        // or resolve(error) if you hate to catch
-    }
-    if (lapsed > (1000 * 60 * 60)) {
-        // Retried more than one hour, so take a break
-        return reject({ error: { original: error, custom: "lapsed" } });
-    }
-    var timeOut = (Math.random() * tried * 200) + 100;
-    retry(timeOut);
-};
 test('async-wrapper', function (done) {
     var maxRetries = 5;
     var retry = {};
