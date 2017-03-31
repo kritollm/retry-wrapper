@@ -20,19 +20,22 @@ let tryCallBack = (error, tried, lapsed, resolve, reject, retry) => {
 test('async-wrapper', done => {
     let maxRetries = 5;
     let retry = {};
-    function simulateRequest(req) {
+    function simulateRequest(req, done) {
         // --- To log retries ---
         retry[req] = retry[req] || 0;
         // ----------------------
-
-        // Can't retry a promise, need to restart before the promise is made.
+        try {
+            expect(retry[req]).toBeLessThanOrEqual(maxRetries);
+        } catch (e) {
+            done.fail(e);
+        }
         return new Promise((resolve, reject) => {
 
             var random = Math.floor(Math.random() * 10);
-            // ---------------------------
+            // Simulate sending of request
+            retry[req]++;
+            // Simulate waiting for answer
             setTimeout(() => {
-                //parallelRequests--;
-                retry[req]++;
                 if (random < 7) {
                     return reject(`${req}, failed at try ${retry[req]}`);
                 }
@@ -68,4 +71,5 @@ test('async-wrapper', done => {
             });
             done();
         })
+        .catch(e => done.fail(e));
 });

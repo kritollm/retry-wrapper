@@ -1,15 +1,17 @@
 # retry-wrapper - Easily add retry logic to any function returning a Promise.
 
-Tired of making custom made spaghetti retry logic when you occasionally need it?
+## Reason
+
+I was tired of making custom made spaghetti retry logic when I occasionally needed it.
 
 ## Usage
 
 ```bash
-$ npm install -S  retry-wrapper
+$ npm install -S retry-wrapper
 ```
 
 ```javascript
-// var retryWrapper = require(retry-wrapper).retryWrapper
+// var retryWrapper = require(retry-wrapper).retryWrapper;
 import { retryWrapper } from 'retry-wrapper';
 
 let myAsyncFunctionWithRetryLogic = retryWrapper(4, myAsyncFunction);
@@ -28,6 +30,10 @@ myAsyncFunctionWithRetryLogic('https://unstable.com/api/findSomething?thing=some
 
 ```javascript
 import { retryWrapper } from 'retry-wrapper';
+
+function doSomething(r) {
+    console.log(r);
+}
 
 let retry = {};
 function simulateRequest(req) {
@@ -56,13 +62,16 @@ for (let i = 0, l = 100; i < l; i++) {
     // 
     promises.push(retryWrapped(i)
         .then(result => ({ error: null, result }))
-        .catch(error => ({ error, result: null }))
+        // Catch so Promise.all(promises) isn't rejected if
+        // retry fails.
+        .catch(error => ({ error, result: null }));
     );
 }
 
 Promise.all(promises)
     .then(res => {
         // Do something with the array of results
+        res.forEach(r => doSomething(r));
     });
 ```
 
