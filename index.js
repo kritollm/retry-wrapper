@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 function retryWrapper(retries, fn) {
     var tryCallBack;
     if (typeof (retries) != 'function') {
@@ -34,5 +35,4 @@ function retryWrapper(retries, fn) {
     };
 }
 exports.retryWrapper = retryWrapper;
-Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = retryWrapper;
