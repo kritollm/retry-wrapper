@@ -1,7 +1,6 @@
 // Stupid to use a library for this simple test, but to use hours to write test and debug the tests because
 // it can't handle async code and promises is more important than productivity :)
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var _1 = require(".");
 test('async-wrapper', function (done) {
     var maxRetries = 5;
