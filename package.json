@@ -1,6 +1,6 @@
 {
   "name": "retry-wrapper",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Easily turn an async function returning a Promise with retry logic.",
   "main": "index.js",
   "typing": "index.d.ts",
