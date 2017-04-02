@@ -64,8 +64,7 @@ for (let i = 0, l = 100; i < l; i++) {
         .then(result => ({ error: null, result }))
         // Catch so Promise.all(promises) isn't rejected if
         // retry fails.
-        .catch(error => ({ error, result: null }));
-    );
+        .catch(error => ({ error, result: null })));
 }
 
 function doSomething(r) {
