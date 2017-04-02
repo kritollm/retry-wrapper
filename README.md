@@ -1,11 +1,12 @@
-# retry-wrapper - Easily add retry logic to any function returning a Promise.
+# retry-wrapper
+
+## Description
+Easily add retry logic to any function returning a Promise.
 
 ## Reason
-
 I was tired of making custom made spaghetti retry logic when I occasionally needed it.
 
 ## Usage
-
 ```bash
 $ npm install -S retry-wrapper
 ```
@@ -26,18 +27,13 @@ withRetryLogic('https://unstable.com/api/findSomething?thing=something')
     });
 ```
 
-## If my function doesn't return a Promise, am I doomed to live a life in callback hell making spaghetti code?
+>If my function doesn't return a Promise, am I doomed to live a life in callback hell making spaghetti code?
 
 Fear not, you can use [this](https://www.npmjs.com/package/cb-topromise-wrapper).
 
 ## Example
-
 ```javascript
 import { retryWrapper } from 'retry-wrapper';
-
-function doSomething(r) {
-    console.log(r);
-}
 
 let retry = {};
 function simulateRequest(req) {
@@ -72,15 +68,17 @@ for (let i = 0, l = 100; i < l; i++) {
     );
 }
 
+function doSomething(r) {
+    console.log(r);
+    return r;
+}
+
 Promise.all(promises)
-    .then(res => {
-        // Do something with the array of results
-        res.forEach(r => doSomething(r));
-    });
+    .then(res => res
+        .map(r => doSomething(r)));
 ```
 
 ## Custom retry logic
-
 ```javascript
 import { retryWrapper } from 'retry-wrapper';
 
@@ -103,7 +101,6 @@ let retryWrapped = retryWrapper(tryCallBack, simulateRequest);
 ```
 
 ## Tips
-
 You can use it with concurrent-wrapper to also add concurrent logic to your async function.
 
 ```bash
@@ -116,13 +113,11 @@ import { concurrentWrapper } from 'concurrent-wrapper';
 // var retryWrapper = require(retry-wrapper).retryWrapper;
 import { retryWrapper } from 'retry-wrapper';
 
-// random order of execution
+// Fastest, retries must wait in que.
 let retryAndConcurrent = retryWrapper(5, concurrentWrapper(5, myRequestFunction));
-// synced order of execution
+// Slower, retries doesn't wait in que.
 //let retryAndConcurrent = concurrentWrapper(5, retryWrapper(5, myRequestFunction));
 for (let i = 0, l = 1000; i < l; i++) {
-    retryAndConcurrent(i)
-    .then(console.log.bind(console))
-    .catch(console.error.bind(console))
+    retryAndConcurrent(i).then(console.log.bind(console)).catch(console.error.bind(console))
   }
 ```
